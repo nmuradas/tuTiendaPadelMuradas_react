@@ -1,5 +1,5 @@
 import React from "react";
-import logo from '../../assets/imagen_logo.jpeg';
+import logo from '../../../assets/imagen_logo.jpeg';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 
 const Navbar = () => {
