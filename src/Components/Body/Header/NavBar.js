@@ -1,20 +1,20 @@
 import React from "react";
 import logo from '../../../assets/imagen_logo.jpeg';
-import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import CartWidget from "./CartWidget";
+
 
 const Navbar = () => {
     return (
         <header style={styles.container}> 
             <img style={styles.imagenes} src={logo} alt="Logo" />
-            <h1>Tienda Tienda Padel</h1>
+            <h1>Tu Tienda Padel</h1>
             <nav style={styles.navStyle}>
-                <a style={styles.anchors} href="">Categoría 1</a>
-                <a style={styles.anchors} href="">Categoría 2</a>
-                <a style={styles.anchors} href="">Categoría 3</a>
+                <a style={styles.anchors} href="#!">Categoría 1</a>
+                <a style={styles.anchors} href="#!">Categoría 2</a>
+                <a style={styles.anchors} href="#!">Categoría 3</a>
             </nav>
             <br />
-        
-            <ShoppingCartIcon color="success" sx={{ fontSize: 40}}/>
+            <CartWidget />
         </header>
     );
 }

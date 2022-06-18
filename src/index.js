@@ -3,11 +3,17 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import Message from './Components/Body/Main/Message';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
+
+const enviarDatos = () => console.log("Datos enviados")
+
 root.render(
   <React.StrictMode>
-    <App name='Pototipo de Tienda de Padel con REACT JS' />
+    <App value='Prototipo de Tu Tienda de Padel' appVs='Version 0.1' enviarDatos={enviarDatos}>
+      <Message />
+    </App>
   </React.StrictMode>
 );
 
