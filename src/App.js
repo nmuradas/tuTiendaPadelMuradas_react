@@ -15,10 +15,11 @@ import './App.css';
 const App= ({ value,children ,appVs, enviarDatos }) => {
   //data es una variable/atributo del estado de react
   const [data] = useState(['Ingrese su nombre', 'Ingrese su apellido'])
+
   return (  //al no tener lógica podria sacarle el return, pero prefiero adoptar el hábito de tenerlo
     <div className='App'>
       <Navbar />
-      <ItemListContainer />
+      <ItemListContainer greeting='Brevemente encontrará todo el listado completo de nuestros productos' />     
       <Main />
       <Title productos='Importados'/>
       <Title productos='Nacionales'/>

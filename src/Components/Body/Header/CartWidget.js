@@ -5,7 +5,7 @@ const CartWidget = () => {
     return (
         <p style={styles.container}> 
             <ShoppingCartIcon color="success" sx={{ fontSize: 40}}/>
-            4
+            <>{localStorage.getItem("cantidad")}</>
         </p>
     );
 }
