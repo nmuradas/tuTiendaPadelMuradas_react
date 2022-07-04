@@ -1,9 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 export let resultado = 0;
 
 const ItemCount = ({stock, initial, onAdd})=> {
     const [contador, setContador] = useState(parseInt(initial));
+
 
 
     const agregar = () => {

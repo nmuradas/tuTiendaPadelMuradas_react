@@ -11,7 +11,7 @@ const enviarDatos = () => console.log("Datos enviados")
 
 root.render(
   <React.StrictMode>
-    <App value='Prototipo de Tu Tienda de Padel' appVs='Version 0.1' enviarDatos={enviarDatos}>
+    <App value='Prototipo de Tu Tienda Padel' appVs='Version 0.1' enviarDatos={enviarDatos}>
       <Message />
     </App>
   </React.StrictMode>

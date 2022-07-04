@@ -5,7 +5,6 @@ import Main from './Components/Body/Main/Main';
 import Input from './Components/Body/Main/Input';
 import Title from './Components/Body/Main/Title';
 import ItemListContainer from './Components/Body/Main/ItemListContainer';
-import { useState } from 'react';
 
 import './App.css';
 
@@ -14,13 +13,14 @@ import './App.css';
   // funciona de las dos formas
 const App= ({ value,children ,appVs, enviarDatos }) => {
   //data es una variable/atributo del estado de react
-  const [data] = useState(['Ingrese su nombre', 'Ingrese su apellido'])
+  const data = ['Ingrese su nombre', 'Ingrese su apellido']
 
   return (  //al no tener lógica podria sacarle el return, pero prefiero adoptar el hábito de tenerlo
     <div className='App'>
       <Navbar />
-      <ItemListContainer greeting='Brevemente encontrará todo el listado completo de nuestros productos' />     
       <Main />
+      <ItemListContainer greeting='Brevemente encontrará todo el listado completo de nuestros productos' />     
+      
       <Title productos='Importados'/>
       <Title productos='Nacionales'/>
       <h1>{value} esta es la {appVs}</h1> 
