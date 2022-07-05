@@ -33,7 +33,7 @@ const Item = ()=> {
     return(
         <>
             <div>
-            {productos.map((producto)=>{
+            {productos.map((producto,i)=>{
                 return <div style={styles.container}>
                         <h2 key={producto.id}>{producto.title} </h2>
                         <img key={producto.id} src={producto.pictureUrl} alt="" width={340} />
