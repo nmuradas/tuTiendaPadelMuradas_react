@@ -6,7 +6,7 @@ import { SpinnerRoundOutlined } from 'spinners-react';
 
 const ItemListContainer = ({greeting})=> {
 
-    
+
     const onAdd = (contador)=>{
         console.log(contador)
         localStorage.setItem("cantidad", contador)
