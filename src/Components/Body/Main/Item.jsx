@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from "react";
+import { SpinnerRoundOutlined } from 'spinners-react';
 
 
 const Item = ()=> {
+
 
     const initialProducts = [
         {id:0, title:'Paleta', description:'eee', price:90000, pictureUrl:'https://cdn.solodeportes.com.ar/media/catalog/product/cache/7c4f9b393f0b8cb75f2b74fe5e9e52aa/p/a/paleta-de-padel-adidas-training-ctrl-57920046-125040rk6cj5001-2.jpg'},
@@ -23,23 +25,38 @@ const Item = ()=> {
                 setProductos(data)
             }).catch(()=>{
                 console.log('Hubo un error');
-            }).finally(()=>{
-                return console.log("Finalizó la carga")
-            })
+            }).finally(()=>(
+                console.log('Finalizada')
+        ))
         },[]);
-    
 
     return(
         <>
             <div>
             {productos.map((producto)=>{
-                return <div>
+                return <div style={styles.container}>
                         <h2 key={producto.id}>{producto.title} </h2>
-                        <img src={producto.pictureUrl} alt="" />
+                        <img key={producto.id} src={producto.pictureUrl} alt="" width={340} />
+                        <p key={producto.id}>{producto.description}</p>
                     </div>
             })}
             </div>
+
         </>
 )};
 
 export default Item
+
+const styles = {
+    container: {
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        backgroundColor: 'lightgreen',
+        width:'420px',
+        border: '1px solid lightgray',
+        boxShadow: '2px 2px 8px 4px #d3d3d3d1',
+        borderRadius:'15px',
+        fontFamily: 'sans-serif',
+        marginBottom:'10px',
+    },
+}
