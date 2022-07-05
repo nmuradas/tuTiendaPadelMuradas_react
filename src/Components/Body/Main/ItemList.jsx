@@ -7,7 +7,6 @@ import { SpinnerCircular} from 'spinners-react';
 const ItemList = ()=>  {
     
     const [state, setState] = useState(true)
-    
     setTimeout(()=>{
         return(
             setState(false)
@@ -69,16 +68,8 @@ const styles = {
     button: {
         backgroundColor: 'lightgreen',
         width:'220px',
-        border: '1px solid lightgray',
-        boxShadow: '2px 2px 8px 4px #d3d3d3d1',
-        borderRadius:'15px',
         fontFamily: 'sans-serif',
         fontSize:'32px',
-        marginBottom:'10px',
-        marginTop:'30px',
-        marginLeft:'30px',
-    },
-    spinner: {
-        alignItem: 'center,'
+
     },
 }

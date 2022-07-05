@@ -58,5 +58,6 @@ const styles = {
         borderRadius:'15px',
         fontFamily: 'sans-serif',
         marginBottom:'10px',
+        marginTop:'20px',
     },
 }
