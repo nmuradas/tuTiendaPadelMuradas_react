@@ -11,6 +11,7 @@ const ItemDetail = ({productos})=> {
                 return <div style={styles.container}>
                         <h2 key={producto.id}>{producto.title} </h2>
                         <img key={producto.id} src={producto.pictureUrl} alt="" width={340} />
+                        <p key={producto.id}>${producto.price}</p>
                         <p key={producto.id}>{producto.description}</p>
                     </div>
             })}

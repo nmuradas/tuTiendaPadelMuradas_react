@@ -6,7 +6,11 @@ import ItemDetail from './ItemDetail';
 const ItemDetailContainer = ()=> {
 
     const initialProduct = [
-        {id:0, title:'Paleta', description:'Paleta Adidas training, blanda y con un amplio punto dulce.', price:90000, pictureUrl:'https://cdn.solodeportes.com.ar/media/catalog/product/cache/7c4f9b393f0b8cb75f2b74fe5e9e52aa/p/a/paleta-de-padel-adidas-training-ctrl-57920046-125040rk6cj5001-2.jpg'},
+        {id:0, title:'Paleta ADIDAS Training CTRL', 
+        description:'La nueva Paleta ADIDAS Training CTRL es la alternativa perfecta para los jugadores que damandan CONTRDOL. Cumplirá con las expectativas del jugador que más sensaciones busca en una paleta de Padel. Su composición en FIBER GALSS y la nueva goma EVA SOFT PERFORMANCE, proporcionan las mejores sensaciones de juego. los SMART HOLES LINEAL, porporcionan la mejor durabilidad. MARCO: FIBER FRAME - SUPERFICIE: FIBER BRAIDED, NIVEL: INTERMEDIO, BALANCE: MEDIO, PESO: 360-375 gr, PUNTO DULCE: CENTRO. NO INCLUYE FUNDA',
+        price:40000, 
+        pictureUrl:'https://cdn.solodeportes.com.ar/media/catalog/product/cache/7c4f9b393f0b8cb75f2b74fe5e9e52aa/p/a/paleta-de-padel-adidas-training-ctrl-57920046-125040rk6cj5001-2.jpg'
+    },
     ]
 
     const getItem = new Promise((resolve,reject)=>{
