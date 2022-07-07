@@ -1,26 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 
 
-const ItemDetail = ({initialProduct})=> {
+const ItemDetail = ({productos})=> {
 
-
-    const getItem = new Promise((resolve,reject)=>{
-        setTimeout(()=>{
-            resolve(initialProduct);
-        }, 2000);   
-    });
-    
-    const [productos, setProductos] = useState([]);
-    
-        useEffect(()=>{
-            getItem.then((data)=>{
-                setProductos(data)
-            }).catch(()=>{
-                console.log('Hubo un error');
-            }).finally(()=>(
-                console.log('Finalizada')
-        ))
-        },[]);
 
     return(
         <>
