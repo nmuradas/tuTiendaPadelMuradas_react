@@ -4,7 +4,7 @@ import { SpinnerCircular} from 'spinners-react';
 
 
 
-const ItemList = ()=>  {
+const ItemList = ({initialProducts})=>  {
     
     const [state, setState] = useState(true)
     setTimeout(()=>{
@@ -53,7 +53,7 @@ return(
         ))}
         </div>
         <div>
-        {detalles ? <Item/> : null }
+        {detalles ? <Item initialProducts={initialProducts}/> : null }
         {state ? <SpinnerCircular enabled={true} /> : null }
         {state ? null : <SpinnerCircular enabled={false} />}
         

@@ -5,6 +5,7 @@ import Main from './Components/Body/Main/Main';
 import Input from './Components/Body/Main/Input';
 import Title from './Components/Body/Main/Title';
 import ItemListContainer from './Components/Body/Main/ItemListContainer';
+import ItemDetailContainer from './Components/Body/Main/ItemDetailContainer';
 
 import './App.css';
 
@@ -20,6 +21,7 @@ const App= ({ value,children ,appVs, enviarDatos }) => {
       <Navbar />
       <Main />
       <ItemListContainer greeting='Brevemente encontrará todo el listado completo de nuestros productos' />     
+      <ItemDetailContainer /> 
       
       <Title productos='Importados'/>
       <Title productos='Nacionales'/>

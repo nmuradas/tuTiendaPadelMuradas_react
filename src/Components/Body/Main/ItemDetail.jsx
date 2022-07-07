@@ -1,19 +1,19 @@
 import React, { useState, useEffect } from "react";
 
 
-const Item = ({initialProducts})=> {
+const ItemDetail = ({initialProduct})=> {
 
 
-    const promesa = new Promise((resolve,reject)=>{
+    const getItem = new Promise((resolve,reject)=>{
         setTimeout(()=>{
-            resolve(initialProducts);
+            resolve(initialProduct);
         }, 2000);   
     });
     
     const [productos, setProductos] = useState([]);
     
         useEffect(()=>{
-            promesa.then((data)=>{
+            getItem.then((data)=>{
                 setProductos(data)
             }).catch(()=>{
                 console.log('Hubo un error');
@@ -37,7 +37,7 @@ const Item = ({initialProducts})=> {
         </>
 )};
 
-export default Item
+export default ItemDetail
 
 const styles = {
     container: {
