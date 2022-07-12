@@ -25,8 +25,8 @@ const ItemCount = ({stock, initial, onAdd})=> {
             <div>MIS PRODUCTOS</div>
             <div>{contador}</div>
             <br />
-            <button onClick={agregar} >➕</button>
-            <button onClick={quitar} >➖</button> <br /> <br />
+            <button onClick={agregar} ><span role="img" aria-labelledby="plus">➕</span></button>
+            <button onClick={quitar} ><span role="img" aria-labelledby="minus">➖</span></button> <br /> <br />
             <button onClick={()=>{contador>0 ? onAdd(contador) : alert("No hay productos en el carrito")}}>Agregar al carrito</button>
             <button onClick={()=>{localStorage.cantidad>0 ? vaciar() : alert("No hay productos en el carrito")}}>Vaciar Carrito</button>
         </section>

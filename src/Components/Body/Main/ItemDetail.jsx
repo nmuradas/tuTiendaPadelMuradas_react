@@ -7,12 +7,12 @@ const ItemDetail = ({productos})=> {
     return(
         <>
             <div>
-            {productos.map((producto)=>{
-                return <div style={styles.container}>
-                        <h2 key={producto.id}>{producto.title} </h2>
-                        <img key={producto.id} src={producto.pictureUrl} alt="" width={340} />
-                        <p key={producto.id}>${producto.price}</p>
-                        <p key={producto.id}>{producto.description}</p>
+            {productos.map((producto, id)=>{
+                return <div key={id} style={styles.container}>
+                        <h2 >{producto.title} </h2>
+                        <img src={producto.pictureUrl} alt="" width={340} />
+                        <p>${producto.price}</p>
+                        <p>{producto.description}</p>
                     </div>
             })}
             </div>

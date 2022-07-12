@@ -49,7 +49,7 @@ return(
     <>
         <div>
         {categorias.map((categoria)=>(
-                    <button onClick={detalle} style={styles.button} key={categoria.id} type='SUBMIT' value='enviar'>{categoria.title} </button>
+                    <button style={styles.button} onClick={detalle} key={categoria.id} type='SUBMIT' value='enviar'>{categoria.title} </button>
         ))}
         </div>
         <div>
@@ -66,10 +66,12 @@ export default ItemList
 
 const styles = {
     button: {
+        alignItems: 'center',
         backgroundColor: 'lightgreen',
         width:'220px',
         fontFamily: 'sans-serif',
         fontSize:'32px',
+        margin:'auto',
 
     },
 }
