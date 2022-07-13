@@ -1,7 +1,7 @@
 import React from "react";
 import logo from '../../../assets/imagen_logo.jpeg';
 import CartWidget from "./CartWidget";
-import { Link } from "react-router-dom"
+import { Link, NavLink } from "react-router-dom"
 
 
 const Navbar = () => {
@@ -17,7 +17,7 @@ const Navbar = () => {
             <Link to="/"> <img style={styles.imagenes} src={logo} alt="Logo" width={100} /> </Link>
             <h1>Tu Tienda Padel</h1>
             <nav style={styles.navStyle}>
-                {categorias.map((category)=> <Link key={category.id} style={styles.anchors} to="{category.route}">{category.name}</Link>)}
+                {categorias.map((category)=> <NavLink key={category.id} style={styles.anchors} to={category.route}>{category.name}</NavLink>)}
             </nav>
             <br />
             <Link to="/cart"><CartWidget /></Link>     
