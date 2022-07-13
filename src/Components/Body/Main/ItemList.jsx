@@ -38,7 +38,7 @@ const [categorias, setCategorias] = useState([]);
         }).finally(()=>{
             console.log('finaliza');
         })
-    },[]);
+    },[]); // eslint-disable-line react-hooks/exhaustive-deps
 
     const [detalles, setDetalles] = useState(false);
     const detalle = ()=>{

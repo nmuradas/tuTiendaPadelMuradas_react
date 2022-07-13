@@ -1,20 +1,26 @@
 import React from "react";
 import logo from '../../../assets/imagen_logo.jpeg';
 import CartWidget from "./CartWidget";
+import { Link } from "react-router-dom"
 
 
 const Navbar = () => {
+
+    const categorias = [
+        {name:"Paletas", id:0, route:"/category/paletas"},
+        {name:"Indumentaria", id:1, route:"/category/indumentaria"},
+        {name:"Equipamiento", id:2, route:"/category/equipamiento"},
+    ]
+
     return (
         <header style={styles.container}> 
-            <img style={styles.imagenes} src={logo} alt="Logo" />
+            <Link to="/"> <img style={styles.imagenes} src={logo} alt="Logo" width={100} /> </Link>
             <h1>Tu Tienda Padel</h1>
             <nav style={styles.navStyle}>
-                <a style={styles.anchors} href="#!">Categoría 1</a>
-                <a style={styles.anchors} href="#!">Categoría 2</a>
-                <a style={styles.anchors} href="#!">Categoría 3</a>
+                {categorias.map((category)=> <Link key={category.id} style={styles.anchors} to="{category.route}">{category.name}</Link>)}
             </nav>
             <br />
-            <CartWidget />
+            <Link to="/cart"><CartWidget /></Link>     
         </header>
     );
 }
@@ -35,7 +41,8 @@ const styles = {
     },
     
     imagenes: {
-        width: '6%',
+        
+        marginLeft: '5px',
     },
     
     anchors: {

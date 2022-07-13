@@ -6,6 +6,11 @@ import Input from './Components/Body/Main/Input';
 import Title from './Components/Body/Main/Title';
 import ItemListContainer from './Components/Body/Main/ItemListContainer';
 import ItemDetailContainer from './Components/Body/Main/ItemDetailContainer';
+import {
+  BrowserRouter,
+  Routes,
+  Route,
+} from "react-router-dom";
 
 import './App.css';
 
@@ -18,6 +23,7 @@ const App= ({ value,children ,appVs, enviarDatos }) => {
 
   return (  //al no tener lógica podria sacarle el return, pero prefiero adoptar el hábito de tenerlo
     <div className='App'>
+      <BrowserRouter>
       <Navbar />
       <Main />
       <ItemListContainer greeting='Brevemente encontrará todo el listado completo de nuestros productos' />     
@@ -35,6 +41,7 @@ const App= ({ value,children ,appVs, enviarDatos }) => {
       }
       <button onClick={enviarDatos}>Enviar tus datos</button>
       {children}
+      </BrowserRouter>
     </div>
   );
 }
