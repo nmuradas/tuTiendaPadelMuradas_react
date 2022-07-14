@@ -4,6 +4,7 @@ import CartWidget from "./CartWidget";
 import { Link, NavLink } from "react-router-dom"
 
 
+
 const Navbar = () => {
 
     const categorias = [
@@ -12,25 +13,25 @@ const Navbar = () => {
         {name:"Cubregrips", id:2, route:"/category/cubregrips"},
         {name:"Protectores", id:3, route:"/category/protectores"},
     ];
-    const [show, setShow] = useState(false);
+    const [change, setShow] = useState(false);
     const cambio = ()=>{
-        setShow(!show)
-        console.log(show)
+        setShow(!change)
+        console.log(change)
     }
     useEffect(()=>{
-        console.log("cambios")
-        
-    },[show]);
+        console.log('Han habido cambios')
+    },[]);
 
     return (
         <header style={styles.container}> 
-            <Link to="/"> <img style={styles.imagenes} src={logo} alt="Logo" width={100} /> </Link>
+            <Link to="/"> <img style={styles.imagenes} src={logo} alt="Logo" width={100} onClick={cambio}/> </Link>
             <h1>Tu Tienda Padel</h1>
             <nav style={styles.navStyle}>
                 {categorias.map((category)=> <NavLink key={category.id} style={styles.link} to={category.route} onClick={cambio}>{category.name}</NavLink>)}
             </nav>
             <br />
-            <Link to="/cart"><CartWidget /></Link>     
+            <Link to="/cart"><CartWidget /></Link> 
+            
         </header>
     );
 }
