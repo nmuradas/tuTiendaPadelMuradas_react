@@ -1,13 +1,13 @@
 import React from "react";
 
 
-const ItemDetail = ({productos})=> {
+const ItemDetail = ({items})=> {
 
 
     return(
         <>
             <div>
-            {productos.map((producto, id)=>{
+            {items.map((producto, id)=>{
                 return <div key={id} style={styles.container}>
                         <h2 >{producto.title} </h2>
                         <img src={producto.pictureUrl} alt="" width={340} />

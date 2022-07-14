@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from "react";
+import { Link} from "react-router-dom"
 
 
-const Item = ({initialProducts})=> {
+const Item = ({products})=> {
 
 
     const promesa = new Promise((resolve,reject)=>{
         setTimeout(()=>{
-            resolve(initialProducts);
+            resolve(products);
         }, 2000);   
     });
     
@@ -30,6 +31,7 @@ const Item = ({initialProducts})=> {
                         <h2 >{producto.title} </h2>
                         <img  src={producto.pictureUrl} alt="" width={380} height={455}/>
                         <p >{producto.description}</p>
+                        <Link to={`/item/${producto.id}`}>Ver más detalle</Link>
                     </div>
             })}
             </div>
@@ -43,7 +45,7 @@ const styles = {
     cards: {
         backgroundColor: 'lightGreen',
         width:'420px',
-        height:'600px',
+        height:'650px',
         border: '1px solid lightgray',
         boxShadow: '2px 2px 8px 4px #d3d3d3d1',
         borderRadius:'15px',

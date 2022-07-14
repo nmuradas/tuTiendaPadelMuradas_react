@@ -2,6 +2,7 @@ import React from 'react';
 //import logo from './logo.svg';
 import Navbar from './Components/Body/Header/NavBar';
 import Main from './Components/Body/Main/Main';
+import Cart from './Components/Body/Main/Cart';
 import Input from './Components/Body/Main/Input';
 import Title from './Components/Body/Main/Title';
 import ItemListContainer from './Components/Body/Main/ItemListContainer';
@@ -25,10 +26,13 @@ const App= ({ value,children ,appVs, enviarDatos }) => {
     <div className='App'>
       <BrowserRouter>
       <Navbar />
-      <Main />
-      <ItemListContainer greeting='Brevemente encontrará todo el listado completo de nuestros productos' />     
-      <ItemDetailContainer /> 
-      
+      <Routes>
+        <Route path="/" element={<ItemListContainer greeting='Brevemente encontrará todo el listado completo de nuestros productos' />}/> 
+        <Route path="/category/:categoryId" element={<ItemListContainer greeting='Brevemente encontrará todo el listado completo de nuestros productos' />}/> 
+        <Route path="/item/:itemId" element={<ItemDetailContainer /> }/> 
+        <Route path="/cart" element={<Cart />}/> 
+      </Routes>
+      <Main />  
       <Title productos='Importados'/>
       <Title productos='Nacionales'/>
       <h1>{value} esta es la {appVs}</h1> 

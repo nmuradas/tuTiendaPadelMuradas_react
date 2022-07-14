@@ -4,8 +4,8 @@ import { SpinnerCircular} from 'spinners-react';
 
 
 
-const ItemList = ({initialProducts})=>  {
-    
+const ItemList = ({products})=>  {
+
     const [state, setState] = useState(true)
     setTimeout(()=>{
         return(
@@ -14,7 +14,7 @@ const ItemList = ({initialProducts})=>  {
     }, 2000); 
 
     const initialCategorias = [
-    {id:0, title:'PRODUCTOS',},
+    {id:0, title:'Bienvenidos',},
 ]
 
 const promesa = new Promise((resolve,reject)=>{
@@ -27,9 +27,8 @@ const promesa = new Promise((resolve,reject)=>{
 
 const [categorias, setCategorias] = useState([]);
 
-
-
     useEffect(()=>{
+        
         promesa.then((data)=>{
             return (
             setCategorias(data))
@@ -40,20 +39,17 @@ const [categorias, setCategorias] = useState([]);
         })
     },[]); // eslint-disable-line react-hooks/exhaustive-deps
 
-    const [detalles, setDetalles] = useState(false);
-    const detalle = ()=>{
-        setDetalles(!detalles)
-    }
+
 
 return(
     <>
         <div>
         {categorias.map((categoria)=>(
-                    <button style={styles.button} onClick={detalle} key={categoria.id} type='SUBMIT' value='enviar'>{categoria.title} </button>
+                    <div style={styles.button}  key={categoria.id} >{categoria.title} </div>
         ))}
         </div>
         <div>
-        {detalles ? <Item initialProducts={initialProducts}/> : null }
+        <Item products={products}/> 
         {state ? <SpinnerCircular enabled={true} /> : null }
         {state ? null : <SpinnerCircular enabled={false} />}
         
@@ -67,7 +63,7 @@ export default ItemList
 const styles = {
     button: {
         alignItems: 'center',
-        backgroundColor: 'lightgreen',
+        backgroundColor: 'lightGray',
         width:'220px',
         fontFamily: 'sans-serif',
         fontSize:'32px',
