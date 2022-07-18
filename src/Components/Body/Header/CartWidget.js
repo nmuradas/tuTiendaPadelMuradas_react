@@ -2,11 +2,13 @@ import React from 'react';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 
 const CartWidget = () => {
+
+
     return (
-        <p style={styles.container}> 
+        <div style={styles.container}> 
             <ShoppingCartIcon color="success" sx={{ fontSize: 40}}/>
             <>{localStorage.getItem("cantidad")}</>
-        </p>
+        </div>
     );
 }
 

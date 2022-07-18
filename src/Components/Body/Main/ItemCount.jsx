@@ -9,7 +9,8 @@ const ItemCount = ({stock, initial, onAdd})=> {
 
 
     const agregar = () => {
-        setContador(contador<stock ? contador + 1 : contador)}
+        setContador(contador<stock ? contador + 1 : contador)
+    }
     
     const quitar = () => {
         setContador(contador>0 ? contador - 1 : 0)}
@@ -22,7 +23,7 @@ const ItemCount = ({stock, initial, onAdd})=> {
     
     return (
         <section style={styles.container}>
-            <div>MIS PRODUCTOS</div>
+            <div>Mi Carrito</div>
             <div>{contador}</div>
             <br />
             <button onClick={agregar} ><span role="img" aria-labelledby="plus">➕</span></button>

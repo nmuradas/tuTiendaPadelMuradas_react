@@ -1,24 +1,11 @@
 import React, { useState, useEffect } from "react";
-import ItemCount from './ItemCount'
+
 import ItemList from './ItemList'
 import { useParams } from "react-router-dom";
 
 
 const ItemListContainer = ({greeting})=> {
     
-
-    const onAdd = (contador)=>{
-        console.log(contador)
-        localStorage.setItem("cantidad", contador)
-        document.location.reload();
-        alert("Usted ha agregado "+ contador + " elementos al carrito")
-    }
-
-    const [show, setShow] = useState(false);
-    const cambio = ()=>{
-        setShow(!show)
-    }
-
 
     const initialProducts = [
         {id:0, title:'Paletas', description:'Paletas para todo tipo de jugador', price:90000, pictureUrl:'https://cdn.solodeportes.com.ar/media/catalog/product/cache/7c4f9b393f0b8cb75f2b74fe5e9e52aa/p/a/paleta-de-padel-adidas-training-ctrl-57920046-125040rk6cj5001-2.jpg', category: 'paletas'},
@@ -52,8 +39,7 @@ const ItemListContainer = ({greeting})=> {
         <>
             <p style={{ backgroundColor : 'green' }}>{greeting}</p>
             <div>
-            {show ? <ItemCount stock='6' initial='0' onAdd={onAdd}/> : <h1>Estás a un click de tu próxima compra</h1> }
-            {show ? null : <button onClick={cambio}>Click para iniciar tu compra</button>}
+            
             <br />
             <br />
             {enviar ? <div style={styles.button} ><ItemList products={products}/></div> : null}

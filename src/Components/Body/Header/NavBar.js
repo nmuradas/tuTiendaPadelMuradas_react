@@ -4,8 +4,7 @@ import CartWidget from "./CartWidget";
 import { Link, NavLink } from "react-router-dom"
 
 
-
-const Navbar = () => {
+const Navbar = (contador) => {
 
     const categorias = [
         {name:"Paletas", id:0, route:"/category/paletas"},

@@ -1,7 +1,29 @@
-import React from "react";
+import React, {useState} from "react";
+import ItemCount from './ItemCount'
+import { Link } from "react-router-dom"
+
 
 
 const ItemDetail = ({items})=> {
+
+
+
+    const [compra, setCompras] = useState(0);
+
+    const onAdd = (contador)=>{   
+        setCompras(compra + contador)      
+        localStorage.setItem("cantidad", contador)
+        alert("Usted ha agregado "+ contador + " elementos al carrito")
+        setShow(!show)
+
+        
+    }
+
+    const [show, setShow] = useState(true);
+    const cambio = (contador)=>{
+        setCompras(compra + contador)
+        console.log("El carrito tiene",compra,"productos")
+    }
 
 
     return(
@@ -13,6 +35,8 @@ const ItemDetail = ({items})=> {
                         <img src={producto.pictureUrl} alt="" width={340} />
                         <p>${producto.price}</p>
                         <p>{producto.description}</p>
+                        {show ? <ItemCount stock='6' initial='0' onAdd={onAdd}/> : <h1>Estás a un click de tu próxima compra</h1> }
+                        {show ? null : <Link to="/cart"><button onClick={cambio}>Finalizar compra</button></Link>}
                     </div>
             })}
             </div>
