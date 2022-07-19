@@ -15,10 +15,13 @@ import {
 
 import './App.css';
 
+
 //const App= (props) => {
   //const { name } = props
   // funciona de las dos formas
 const App= ({ value,children ,appVs, enviarDatos }) => {
+
+
   //data es una variable/atributo del estado de react
   const data = ['Ingrese su nombre', 'Ingrese su apellido']
 
@@ -30,11 +33,10 @@ const App= ({ value,children ,appVs, enviarDatos }) => {
         <Route path="/" element={<ItemListContainer greeting='Brevemente encontrará todo el listado completo de nuestros productos' />}/> 
         <Route path="/category/:categoryId" element={<ItemListContainer greeting='Brevemente encontrará todo el listado completo de nuestros productos' />}/> 
         <Route path="/item/:itemId" element={<ItemDetailContainer /> }/> 
-        <Route path="/cart" element={<Cart />}/> 
+        <Route exact path="/cart" element={<Cart />}/> 
       </Routes>
       <Main />  
-      <Title productos='Importados'/>
-      <Title productos='Nacionales'/>
+      <Title productos='Importados y Nacionales'/>
       <h1>{value} esta es la {appVs}</h1> 
       {
         data.map((item)=>{

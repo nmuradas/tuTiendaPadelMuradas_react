@@ -1,8 +1,9 @@
 import React from 'react';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 
-const CartWidget = () => {
 
+
+const CartWidget = () => {
 
     return (
         <div style={styles.container}> 
