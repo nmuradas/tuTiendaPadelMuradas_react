@@ -1,27 +1,27 @@
-import React, {useState} from "react";
+import React, {useState,useContext} from "react";
 import ItemCount from './ItemCount'
 import { Link } from "react-router-dom"
-
+import {contexto} from '../../Context/Contexto'
 
 
 const ItemDetail = ({items})=> {
 
+    const { addCompras } = useContext(contexto);
 
-    const [compra, setCompras] = useState(0);
+    const [agregado, setAgregados] = useState(0);
 
     const onAdd = (contador)=>{   
-        setCompras(compra + contador)      
-        localStorage.setItem("cantidad", contador)
-
+        setAgregados(agregado + contador)      
         alert("Usted ha agregado "+ contador + " elementos al carrito")
         setShow(!show)
+        addCompras({...items, qty: contador});
 
     }
 
 
     const [show, setShow] = useState(true);
     const cambio = ()=>{
-        console.log("El carrito tiene",compra,"productos")
+        console.log("El carrito tiene",agregado,"productos")
     }
 
 

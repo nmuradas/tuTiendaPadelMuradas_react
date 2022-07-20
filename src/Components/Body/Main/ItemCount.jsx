@@ -1,11 +1,12 @@
-import React, { useState} from "react";
+import React, {useState,useContext} from "react";
+import {contexto} from '../../Context/Contexto'
 
 
 export let resultado = 0;
 
 const ItemCount = ({stock, initial, onAdd})=> {
     const [contador, setContador] = useState(parseInt(initial));
-
+    const { resetCompras, qtyProducts } = useContext(contexto);
 
 
     const agregar = () => {
@@ -16,9 +17,9 @@ const ItemCount = ({stock, initial, onAdd})=> {
         setContador(contador>0 ? contador - 1 : 0)}
 
     const vaciar = () => {
-        localStorage.setItem("cantidad", 0)
-        document.location.reload();
-        alert("Su carrito de compras ahora se encuentra vacio")}
+        resetCompras()
+        alert("Se ha vaciado el carrito")
+    }
         
     
     return (
@@ -29,7 +30,7 @@ const ItemCount = ({stock, initial, onAdd})=> {
             <button onClick={agregar} ><span role="img" aria-labelledby="plus">➕</span></button>
             <button onClick={quitar} ><span role="img" aria-labelledby="minus">➖</span></button> <br /> <br />
             <button onClick={()=>{contador>0 ? onAdd(contador) : alert("No hay productos en el carrito")}}>Agregar al carrito</button>
-            <button onClick={()=>{localStorage.cantidad>0 ? vaciar() : alert("No hay productos en el carrito")}}>Vaciar Carrito</button>
+            <button onClick={()=>{qtyProducts > 0 ? vaciar() : alert("No hay productos en el carrito")}}>Vaciar Carrito</button>
         </section>
     )
 

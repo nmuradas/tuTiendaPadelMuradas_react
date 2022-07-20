@@ -7,6 +7,7 @@ import Input from './Components/Body/Main/Input';
 import Title from './Components/Body/Main/Title';
 import ItemListContainer from './Components/Body/Main/ItemListContainer';
 import ItemDetailContainer from './Components/Body/Main/ItemDetailContainer';
+import CustomProvider from './Components/Context/Contexto'
 import {
   BrowserRouter,
   Routes,
@@ -28,25 +29,27 @@ const App= ({ value,children ,appVs, enviarDatos }) => {
   return (  //al no tener lógica podria sacarle el return, pero prefiero adoptar el hábito de tenerlo
     <div className='App'>
       <BrowserRouter>
-      <Navbar />
-      <Routes>
-        <Route path="/" element={<ItemListContainer greeting='Brevemente encontrará todo el listado completo de nuestros productos' />}/> 
-        <Route path="/category/:categoryId" element={<ItemListContainer greeting='Brevemente encontrará todo el listado completo de nuestros productos' />}/> 
-        <Route path="/item/:itemId" element={<ItemDetailContainer /> }/> 
-        <Route exact path="/cart" element={<Cart />}/> 
-      </Routes>
-      <Main />  
-      <Title productos='Importados y Nacionales'/>
-      <h1>{value} esta es la {appVs}</h1> 
-      {
-        data.map((item)=>{
-          return(
-            <Input key={item} valor={item} />
-          )
-        })
-      }
-      <button onClick={enviarDatos}>Enviar tus datos</button>
-      {children}
+        <CustomProvider> 
+          <Navbar />
+          <Routes>
+            <Route path="/" element={<ItemListContainer greeting='Brevemente encontrará todo el listado completo de nuestros productos' />}/> 
+            <Route path="/category/:categoryId" element={<ItemListContainer greeting='Brevemente encontrará todo el listado completo de nuestros productos' />}/> 
+            <Route path="/item/:itemId" element={<ItemDetailContainer /> }/> 
+            <Route exact path="/cart" element={<Cart />}/> 
+          </Routes>
+          <Main />  
+          <Title productos='Importados y Nacionales'/>
+          <h1>{value} esta es la {appVs}</h1> 
+          {
+            data.map((item)=>{
+              return(
+                <Input key={item} valor={item} />
+              )
+            })
+          }
+          <button onClick={enviarDatos}>Enviar tus datos</button>
+          {children}
+        </CustomProvider> 
       </BrowserRouter>
     </div>
   );

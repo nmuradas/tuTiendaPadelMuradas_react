@@ -1,14 +1,17 @@
-import React from 'react';
+import React, {useState,useContext} from "react";
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import {contexto} from '../../Context/Contexto'
 
 
 
 const CartWidget = () => {
 
+    const { qtyProducts } = useContext(contexto);
+
     return (
         <div style={styles.container}> 
             <ShoppingCartIcon color="success" sx={{ fontSize: 40}}/>
-            <>{localStorage.getItem("cantidad")}</>
+            <>{ qtyProducts }</>
         </div>
     );
 }
