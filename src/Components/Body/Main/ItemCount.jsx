@@ -2,7 +2,7 @@ import React, {useState,useContext} from "react";
 import {contexto} from '../../Context/Contexto'
 
 
-export let resultado = 0;
+
 
 const ItemCount = ({stock, initial, onAdd})=> {
     const [contador, setContador] = useState(parseInt(initial));
