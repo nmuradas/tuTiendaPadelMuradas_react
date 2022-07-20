@@ -26,8 +26,8 @@ const CustomProvider = ({ children }) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [compras])
 
-    const removeCompras = (compras) => {
-        console.log('esta funcion elimina productos')
+    const removeCompras = () => {
+        console.log('esta funcion eliminar un producto')
     }
 
     const resetCompras = () => {

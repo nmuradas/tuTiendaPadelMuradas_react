@@ -5,7 +5,12 @@ import {contexto} from '../../Context/Contexto'
 
 const Cart = () => {
 
-    const { compras } = useContext(contexto);
+    const { compras,removeCompras  } = useContext(contexto);
+
+    const removerItem = ()=>{
+        removeCompras();
+
+    }
 
     
     return (    
@@ -17,7 +22,7 @@ const Cart = () => {
                     <img  src={producto[0].pictureUrl} alt="" width={380} height={455}/>
                     <p >$ {producto[0].price}</p>
                     <p >Cantidad: {producto.qty}</p>
-                    <button>Eliminar Producto</button>
+                    <button onClick={removerItem}>Eliminar Producto</button>
                     <br />
                     <br />
                 </div>
