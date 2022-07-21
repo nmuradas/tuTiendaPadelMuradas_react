@@ -11,14 +11,22 @@ const CustomProvider = ({ children }) => {
 
     const [qtyProducts, setQtyProducts] = useState(0);
 
-    const addCompras = (cart) => {
-        setCompras([...compras, cart])
-        setQtyProducts(qtyProducts + cart.qty)
-        console.log(compras)
-    }
+
+    const addCompras = (items) => {
+        if (isInList(items.id)) {
+            const found = compras.find(p => p.id === items.id);
+            const index = compras.indexOf(found);
+            const aux = [...compras, items];
+            aux[index].qty += items.qty;
+            setCompras(aux);
+        } else {
+            setCompras([...compras, items]);
+        };}
 
     const obtenerCantidad = () => {
-        console.log(qtyProducts)
+        let qty = 0;
+        compras.forEach(items => qty += items.qty);
+        setQtyProducts(qty);
     }
 
     useEffect(() => {
@@ -26,9 +34,11 @@ const CustomProvider = ({ children }) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [compras])
 
-    const removeCompras = () => {
-        console.log('esta funcion eliminar un producto')
-    }
+    const removeCompras = (id) => {
+        let item = compras.filter(items => items.id !== Number(id))[1];
+        console.log(id)
+        console.log(item)
+    };
 
     const resetCompras = () => {
         setCompras([]);
@@ -36,17 +46,15 @@ const CustomProvider = ({ children }) => {
     }
 
 
-    const IsInList = (id) => {
-        console.log('esta funcion valida si el producto ya esta en la lista')
-    }
-
-
+    const isInList = (id) => {
+        console.log('hola')
+    };
 
 
 
 
 return (
-        <Provider value={{compras, addCompras, removeCompras, resetCompras, qtyProducts,}}>
+        <Provider value={{compras, addCompras, removeCompras, resetCompras, qtyProducts}}>
             {children} 
         </Provider>
     )
