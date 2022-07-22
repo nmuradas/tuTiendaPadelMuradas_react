@@ -1,11 +1,12 @@
 import React, {useContext} from 'react';
 import {contexto} from '../../Context/Contexto'
+import { Link } from "react-router-dom"
 
 
 
 const Cart = () => {
 
-    const { compras,removeCompras  } = useContext(contexto);
+    const { compras,removeCompras, totalPrice } = useContext(contexto);
 
     const removerItem = (e)=>{
         removeCompras(e.target.id);
@@ -27,6 +28,8 @@ const Cart = () => {
                 </div>
         })}
         </div>
+        {{ totalPrice} > 0 ? <h2>Precio Total: $ { totalPrice }</h2> : <div><h2>No tienes productos en tu carrito de compras</h2>  <Link to="/"><button>Volvé al Inicio para conocer nuestros productos</button></ Link> </div> }
+        
     </>
     )
 }

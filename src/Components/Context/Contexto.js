@@ -7,11 +7,15 @@ const { Provider } = contexto;
 const CustomProvider = ({ children }) => {
     const [compras, setCompras] = useState([])
     const [qtyProducts, setQtyProducts] = useState(0);
+    const [totalPrice, setTotalPrice] = useState(0);
 
     const obtenerCantidad = () => {
         let qty = 0;
         compras.forEach(items => qty += items.qty);
         setQtyProducts(qty);
+        let price = 0
+        compras.forEach(items => price += items[0].price * items.qty);
+        setTotalPrice(price);
     }
 
 
@@ -56,7 +60,7 @@ const CustomProvider = ({ children }) => {
 
 
 return (
-        <Provider value={{compras, addCompras, removeCompras, resetCompras, qtyProducts}}>
+        <Provider value={{compras, addCompras, removeCompras, resetCompras, qtyProducts, totalPrice}}>
             {children} 
         </Provider>
     )
