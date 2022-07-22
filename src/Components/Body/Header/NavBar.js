@@ -12,6 +12,8 @@ const Navbar = () => {
         {name:"Pelotitas", id:1, route:"/category/pelotitas"},
         {name:"Cubregrips", id:2, route:"/category/cubregrips"},
         {name:"Protectores", id:3, route:"/category/protectores"},
+        {name:"Mi carrito", id:3, route:"/cart"},
+        
     ];
     const [change, setShow] = useState(false);
     const refresh = ()=>{
