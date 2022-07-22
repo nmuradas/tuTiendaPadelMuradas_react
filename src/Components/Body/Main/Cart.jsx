@@ -9,7 +9,6 @@ const Cart = () => {
 
     const removerItem = (e)=>{
         removeCompras(e.target.id);
-
     }
 
     

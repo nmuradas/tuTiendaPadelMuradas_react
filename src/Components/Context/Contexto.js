@@ -6,22 +6,7 @@ const { Provider } = contexto;
 
 const CustomProvider = ({ children }) => {
     const [compras, setCompras] = useState([])
-    console.log(compras)
-
-
     const [qtyProducts, setQtyProducts] = useState(0);
-
-
-    const addCompras = (items) => {
-        if (isInList(items.id)) {
-            const found = compras.find(p => p.id === items.id);
-            const index = compras.indexOf(found);
-            const aux = [...compras, items];
-            aux[index].qty += items.qty;
-            setCompras(aux);
-        } else {
-            setCompras([...compras, items]);
-        };}
 
     const obtenerCantidad = () => {
         let qty = 0;
@@ -29,15 +14,32 @@ const CustomProvider = ({ children }) => {
         setQtyProducts(qty);
     }
 
+
     useEffect(() => {
         obtenerCantidad();
     // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [compras])
 
+    const addCompras = (items) => {
+        if (isInList(items[0].id)) {
+        const aux = [...compras];
+        const found = aux.find(p => Number(p[0].id) === items[0].id);
+        console.log(typeof(items[0].id))
+        found.qty += items.qty;
+        setCompras(aux);
+    } else {
+        setCompras([...compras, items]);
+        console.log(items[0].id)
+        console.log(typeof(items[0].id))
+    };
+}
+
+
+
     const removeCompras = (id) => {
-        let item = compras.filter(items => items.id !== Number(id))[1];
-        console.log(id)
-        console.log(item)
+        setCompras(compras.filter(items => items[0].id !== Number(id)));
+        console.log(typeof(id))
+        console.log('pasa algo')
     };
 
     const resetCompras = () => {
@@ -47,7 +49,7 @@ const CustomProvider = ({ children }) => {
 
 
     const isInList = (id) => {
-        console.log('hola')
+        return compras.some(items => items[0].id === id);
     };
 
 

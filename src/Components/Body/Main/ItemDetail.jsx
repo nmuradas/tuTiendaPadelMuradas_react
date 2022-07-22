@@ -15,7 +15,6 @@ const ItemDetail = ({items})=> {
         alert("Usted ha agregado "+ contador + " elementos al carrito")
         setShow(!show)
         addCompras({...items, qty: contador});
-
     }
 
 

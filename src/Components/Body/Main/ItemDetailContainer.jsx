@@ -40,6 +40,7 @@ route:"/item/3"
             const filter = initialProduct.filter(item => item.id === Number(itemId))
             console.log(filter)
             console.log(itemId)
+            console.log(initialProduct)
             if (filter.length === 0){
             setItems(initialProduct)
             setEnviar(true)
