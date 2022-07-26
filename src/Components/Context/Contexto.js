@@ -14,7 +14,7 @@ const CustomProvider = ({ children }) => {
         compras.forEach(items => qty += items.qty);
         setQtyProducts(qty);
         let price = 0
-        compras.forEach(items => price += items[0].price * items.qty);
+        compras.forEach(items => price += items.price * items.qty);
         setTotalPrice(price);
     }
 
@@ -25,23 +25,24 @@ const CustomProvider = ({ children }) => {
     }, [compras])
 
     const addCompras = (items) => {
-        if (isInList(items[0].id)) {
+        if (isInList(items.id)) {     
+        const found = compras.find(p => p.id === items.id);
+        const index = compras.indexOf(found);
         const aux = [...compras];
-        const found = aux.find(p => Number(p[0].id) === items[0].id);
-        console.log(typeof(items[0].id))
-        found.qty += items.qty;
+        aux[index].qty += items.qty;
+        console.log(typeof(items.id))
         setCompras(aux);
     } else {
         setCompras([...compras, items]);
-        console.log(items[0].id)
-        console.log(typeof(items[0].id))
+        console.log(items.id)
+        console.log(typeof(items.id))
     };
 }
 
 
 
     const removeCompras = (id) => {
-        setCompras(compras.filter(items => items[0].id !== Number(id)));
+        setCompras(compras.filter(items => items.id !== id));
         console.log(typeof(id))
         console.log('pasa algo')
     };
@@ -53,7 +54,7 @@ const CustomProvider = ({ children }) => {
 
 
     const isInList = (id) => {
-        return compras.some(items => items[0].id === id);
+        return compras.some(items => items.id === id);
     };
 
 

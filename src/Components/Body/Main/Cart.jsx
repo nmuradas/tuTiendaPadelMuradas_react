@@ -19,11 +19,11 @@ const Cart = () => {
         <div>
         {compras.map((producto,idx)=>{
             return <div key={idx} style={styles.cards}>
-                    <h2 >{producto[0].title} </h2>
-                    <img  src={producto[0].pictureUrl} alt="" width={380} height={455}/>
-                    <p >$ {producto[0].price} por unidad</p>
+                    <h2 >{producto.prodTitle} </h2>
+                    <img  src={producto.pictureUrl} alt="" width={380} height={455}/>
+                    <p >$ {producto.price} por unidad</p>
                     <p >Cantidad: {producto.qty}</p>
-                    <button onClick={removerItem} id={producto[0].id}>Eliminar Producto</button>
+                    <button onClick={removerItem} id={producto.id}>Eliminar Producto</button>
                     <br />
                     <br />
                 </div>

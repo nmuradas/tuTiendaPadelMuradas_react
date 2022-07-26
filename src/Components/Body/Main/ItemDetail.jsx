@@ -5,12 +5,14 @@ import {contexto} from '../../Context/Contexto'
 
 
 const ItemDetail = ({items})=> {
-
+    console.log(items.description)
+    
     const { addCompras } = useContext(contexto);
 
     const [agregado, setAgregados] = useState(0);
 
     const onAdd = (contador)=>{   
+        console.log(contador)
         setAgregados(agregado + contador)      
         alert("Usted ha agregado "+ contador + " elementos al carrito")
         setShow(!show)
@@ -25,21 +27,15 @@ const ItemDetail = ({items})=> {
 
 
     return(
-        <>
-            <div>
-            {items.map((producto, id)=>{
-                return <div key={id} style={styles.container}>
-                        <h2 >{producto.title} </h2>
-                        <img src={producto.pictureUrl} alt="" width={340} />
-                        <p>${producto.price}</p>
-                        <p>{producto.description}</p>
+
+                    <div style={styles.container}>
+                            <h2 >{items.prodTitle} </h2>
+                            <img src={items.pictureUrl} alt="" width={340} />
+                            <p>${items.price}</p>
+                            <p>{items.longDescription}</p>
                         {show ? <ItemCount stock='6' initial='0' onAdd={onAdd} /> : <Link to="/cart"><button onClick={cambio}>Finalizar compra</button></Link>}
                     </div>
-            })}
-            </div>
-
-        </>
-)};
+);};
 
 export default ItemDetail
 
