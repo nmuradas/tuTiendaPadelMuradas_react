@@ -36,7 +36,7 @@ const App= ({ value,children ,appVs }) => {
           <Main />  
           <Title productos='Importados y Nacionales'/>
           <h1>{value} esta es la {appVs}</h1>       
-         {children}
+          {children}
         </CustomProvider> 
       </BrowserRouter>
     </div>
