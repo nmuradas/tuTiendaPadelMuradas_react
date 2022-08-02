@@ -1,13 +1,38 @@
-import React, {useContext} from 'react';
+import React, {useContext, useState, useEffect} from 'react';
+import CompradorFormulario from './CompradorFormulario';
 import {contexto} from '../../Context/Contexto'
 import { Link } from "react-router-dom"
+import { db } from '../../../firebase/firebase'
+import { addDoc, collection, serverTimestamp } from 'firebase/firestore'
+import Swal from 'sweetalert2'
 
 
+const Cart = ({objComprador}) => {
 
-const Cart = () => {
+    const { compras,removeCompras, totalPrice } = useContext(contexto);     
 
-    const { compras,removeCompras, totalPrice } = useContext(contexto);
-    console.log(totalPrice)
+    const [idVenta, setIdVenta] = useState("")
+
+    const finalizarCompra = (buyer) => {
+
+        const ventasCollection = collection(db, 'ventas');
+        addDoc(ventasCollection, {
+            buyer,
+            items: compras,
+            date: serverTimestamp(),
+            precioTotal: totalPrice
+            })
+        .then((result)=>{
+            setIdVenta(result.id);
+        }
+        )
+    }
+
+    useEffect(()=>{
+        if(idVenta !==''){
+        Swal.fire("Por favor toma nota del numero de pedido", idVenta);}
+    },[idVenta]
+    )
 
     const removerItem = (e)=>{
         removeCompras(e.target.id);
@@ -21,15 +46,15 @@ const Cart = () => {
             return <div key={idx} style={styles.cards}>
                     <h2 >{producto.prodTitle} </h2>
                     <img  src={producto.pictureUrl} alt="" width={380} height={455}/>
-                    <p >$ {producto.price} por unidad</p>
                     <p >Cantidad: {producto.qty}</p>
+                    <p >Precio total: $ {producto.price * producto.qty}</p>                 
                     <button onClick={removerItem} id={producto.id}>Eliminar Producto</button>
                     <br />
                     <br />
                 </div>
         })}
         </div>
-        {totalPrice > 0 ? <h2>Precio Total: $ { totalPrice }</h2> : <div><h2>No tienes productos en tu carrito de compras</h2>  <Link to="/"><button>Volvé al Inicio para conocer nuestros productos</button></ Link> </div> }
+        {totalPrice > 0 ? <div><h2>Precio Total: $ { totalPrice }</h2> <CompradorFormulario finalizarCompra={finalizarCompra}/> </div>  : <div><h2>No tienes productos en tu carrito de compras</h2>  <Link to="/"><button>Volvé al Inicio para conocer nuestros productos</button></ Link> </div> }
         
     </>
     )

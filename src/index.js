@@ -7,11 +7,11 @@ import Message from './Components/Body/Main/Message';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
-const enviarDatos = () => console.log("Datos enviados")
+
 
 root.render(
   <React.StrictMode>
-    <App value='Prototipo de Tu Tienda Padel' appVs='Version 0.1' enviarDatos={enviarDatos}>
+    <App value='Prototipo de Tu Tienda Padel' appVs='Version 0.1'>
       <Message />
     </App>
   </React.StrictMode>
