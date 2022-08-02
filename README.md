@@ -1,7 +1,8 @@
 <h1 align="center"> TU TIENDA PADEL </h1>
-## Encontrá todo el equipamiento que necesitas, en una sola tienda
-### Creada por Néstor Muradas
 
+## Encontrá todo el equipamiento que necesitas, en una sola tienda
+
+### Creada por Néstor Muradas
 
 Productos disponibles:
 * Paletas
@@ -16,7 +17,7 @@ Para realizar una compra debes:
 4. Completa tus datos en el formulario
 5. Clicl en COMPRAR
 
-```No olvides tomar nota de tu número de pedido```con sombreado
+```No olvides tomar nota de tu número de pedido```
 >E-commerce en etapa de desarrollo aún, puedes encontrar algunos faltantes
 
 [Visitá nuestra tienda amiga PADEL NETWORK](https://www.padelnetwork.com/)
