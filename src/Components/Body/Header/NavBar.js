@@ -60,7 +60,18 @@ const styles = {
     },
     
     link: {
-        margin: '10px',
+        margin: 'auto',
+        marginLeft: '35px',
+        textDecoration: 'none',
+        color: 'black',
+        fontWeight: 'bold',
+        backgroundColor:'lightgray',
+        padding: '5px',
+        borderRadius: 5,
+        borderColor: 'gray', 
+        borderWidth: 2,
+        borderStyle: 'solid', 
+
     },
 
 }
