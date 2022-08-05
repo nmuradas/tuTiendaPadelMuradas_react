@@ -2,6 +2,7 @@ import React, {useState,useContext} from "react";
 import ItemCount from './ItemCount'
 import { Link } from "react-router-dom"
 import {contexto} from '../../Context/Contexto'
+import Swal from 'sweetalert2'
 
 
 const ItemDetail = ({items})=> {
@@ -12,19 +13,14 @@ const ItemDetail = ({items})=> {
     const [agregado, setAgregados] = useState(0);
 
     const onAdd = (contador)=>{   
-        console.log(contador)
         setAgregados(agregado + contador)      
-        alert("Usted ha agregado "+ contador + " elementos al carrito")
+        Swal.fire("Usted ha agregado "+ contador + " elementos al carrito")
         setShow(!show)
         addCompras({...items, qty: contador});
     }
 
 
     const [show, setShow] = useState(true);
-    const cambio = ()=>{
-        console.log("El carrito tiene",agregado,"productos")
-    }
-
 
     return(
 
@@ -33,7 +29,7 @@ const ItemDetail = ({items})=> {
                             <img src={items.pictureUrl} alt="" width={340} />
                             <p>${items.price}</p>
                             <p>{items.longDescription}</p>
-                        {show ? <ItemCount stock='6' initial='0' onAdd={onAdd} /> : <Link to="/cart"><button onClick={cambio}>Finalizar compra</button></Link>}
+                        {show ? <ItemCount stock='6' initial='0' onAdd={onAdd} /> : <Link to="/cart"><button>Finalizar compra</button></Link>}
                     </div>
 );};
 

@@ -7,9 +7,9 @@ import { addDoc, collection, serverTimestamp } from 'firebase/firestore'
 import Swal from 'sweetalert2'
 
 
-const Cart = ({objComprador}) => {
+const Cart = () => {
 
-    const { compras,removeCompras, totalPrice } = useContext(contexto);     
+    const { compras,removeCompras, totalPrice,resetCompras } = useContext(contexto);     
 
     const [idVenta, setIdVenta] = useState("")
 
@@ -19,7 +19,7 @@ const Cart = ({objComprador}) => {
         addDoc(ventasCollection, {
             buyer,
             items: compras,
-            date: serverTimestamp(),
+            fecha_de_compra: serverTimestamp(),
             precioTotal: totalPrice
             })
         .then((result)=>{
@@ -30,7 +30,14 @@ const Cart = ({objComprador}) => {
 
     useEffect(()=>{
         if(idVenta !==''){
-        Swal.fire("Por favor toma nota del numero de pedido", idVenta);}
+Swal.fire({
+    icon: 'success',
+    title: 'FELICITACIONES',
+    text: ('Por favor toma nota del numero de pedido, muchas gracias por tu compra', idVenta),
+    confirmButtonText: 'OK',
+})
+        resetCompras()
+    }
     },[idVenta]
     )
 

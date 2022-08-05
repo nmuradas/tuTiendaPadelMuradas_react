@@ -18,10 +18,8 @@ const Navbar = () => {
     const [change, setShow] = useState(false);
     const refresh = ()=>{
         setShow(!change)
-        console.log(change)
     }
     useEffect(()=>{
-        console.log('Han habido cambios')
         setShow(!change)        
     },[categoryId]);// eslint-disable-line react-hooks/exhaustive-deps
 

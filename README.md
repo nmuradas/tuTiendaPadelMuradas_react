@@ -18,7 +18,7 @@ Para realizar una compra debes:
 5. Clicl en COMPRAR
 
 ```No olvides tomar nota de tu número de pedido```
->E-commerce en etapa de desarrollo aún, puedes encontrar algunos faltantes
+>Somos un E-commerce en pleno desarrollo, puedes encontrar algunos faltantes. En ese caso, no dudes en contactarnos a: **tutiendapadel@gmail.com**
 
 [Visitá nuestra tienda amiga PADEL NETWORK](https://www.padelnetwork.com/)
 

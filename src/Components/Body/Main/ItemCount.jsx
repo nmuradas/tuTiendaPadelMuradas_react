@@ -1,6 +1,6 @@
 import React, {useState,useContext} from "react";
 import {contexto} from '../../Context/Contexto'
-
+import Swal from 'sweetalert2'
 
 
 
@@ -18,7 +18,7 @@ const ItemCount = ({stock, initial, onAdd})=> {
 
     const vaciar = () => {
         resetCompras()
-        alert("Se ha vaciado el carrito")
+        Swal.fire("Se ha vaciado el carrito")
     }
         
     
@@ -29,8 +29,8 @@ const ItemCount = ({stock, initial, onAdd})=> {
             <br />
             <button onClick={agregar} ><span role="img" aria-labelledby="plus">➕</span></button>
             <button onClick={quitar} ><span role="img" aria-labelledby="minus">➖</span></button> <br /> <br />
-            <button onClick={()=>{contador>0 ? onAdd(contador) : alert("No hay productos en el carrito")}}>Agregar al carrito</button>
-            <button onClick={()=>{qtyProducts > 0 ? vaciar() : alert("No hay productos en el carrito")}}>Vaciar Carrito</button>
+            <button onClick={()=>{contador>0 ? onAdd(contador) : Swal.fire("No hay productos en el carrito")}}>Agregar al carrito</button>
+            <button onClick={()=>{qtyProducts > 0 ? vaciar() : Swal.fire("No hay productos en el carrito")}}>Vaciar Carrito</button>
         </section>
     )
 
