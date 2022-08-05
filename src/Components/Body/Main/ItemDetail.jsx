@@ -27,9 +27,10 @@ const ItemDetail = ({items})=> {
                     <div style={styles.container}>
                             <h2 >{items.prodTitle} </h2>
                             <img src={items.pictureUrl} alt="" width={340} />
-                            <p>${items.price}</p>
+                            <p>Precio por unidad ${items.price}</p>
                             <p>{items.longDescription}</p>
-                        {show ? <ItemCount stock='6' initial='0' onAdd={onAdd} /> : <Link to="/cart"><button>Finalizar compra</button></Link>}
+                        {show ? <ItemCount stock='6' initial='0' onAdd={onAdd} /> : <Link to="/cart"><button style={styles.btn}>COMPRAR</button></Link>}
+                        <br />
                     </div>
 );};
 
@@ -45,7 +46,16 @@ const styles = {
         boxShadow: '2px 2px 8px 4px #d3d3d3d1',
         borderRadius:'15px',
         fontFamily: 'sans-serif',
-        marginBottom:'10px',
+        margin: 'auto',
         marginTop:'20px',
+    },
+    btn: {
+        backgroundColor:"lightGray",
+        borderRadius: 5,
+        borderColor: 'white', 
+        borderWidth: 2,
+        borderStyle: 'solid', 
+        fontWeight: 'bold', 
+        marginBottom: '20px',
     },
 }

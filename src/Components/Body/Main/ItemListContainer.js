@@ -37,7 +37,7 @@ const ItemListContainer = ({greeting})=> {
 
     return(
         <>
-            <p style={{ backgroundColor : 'green' }}>{greeting}</p>
+            <p style={{ backgroundColor : 'lightGreen' }}>{greeting}</p>
             <div>
             
             <br />

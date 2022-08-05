@@ -33,7 +33,7 @@ const Cart = () => {
 Swal.fire({
     icon: 'success',
     title: 'FELICITACIONES',
-    text: ('Por favor toma nota del numero de pedido, muchas gracias por tu compra', idVenta),
+    text: 'Por favor toma nota del numero de pedido, muchas gracias por tu compra ' + idVenta,
     confirmButtonText: 'OK',
 })
         resetCompras()
@@ -55,13 +55,13 @@ Swal.fire({
                     <img  src={producto.pictureUrl} alt="" width={380} height={455}/>
                     <p >Cantidad: {producto.qty}</p>
                     <p >Precio total: $ {producto.price * producto.qty}</p>                 
-                    <button onClick={removerItem} id={producto.id}>Eliminar Producto</button>
+                    <button style={styles.btn} onClick={removerItem} id={producto.id}>Eliminar Producto</button>
                     <br />
                     <br />
                 </div>
         })}
         </div>
-        {totalPrice > 0 ? <div><h2>Precio Total: $ { totalPrice }</h2> <CompradorFormulario finalizarCompra={finalizarCompra}/> </div>  : <div><h2>No tienes productos en tu carrito de compras</h2>  <Link to="/"><button>Volvé al Inicio para conocer nuestros productos</button></ Link> </div> }
+        {totalPrice > 0 ? <div><h2>Precio Total: $ { totalPrice }</h2> <CompradorFormulario finalizarCompra={finalizarCompra}/> </div>  : <div><h2>No tienes productos en tu carrito de compras</h2>  <Link to="/"><button style={styles.btn}>Volvé al Inicio para conocer nuestros productos</button></ Link> </div> }
         
     </>
     )
@@ -84,4 +84,18 @@ const styles = {
         marginLeft:'auto',
         marginRight:'auto',
     },
+    btn: {
+        backgroundColor:"lightGray",
+        borderRadius: 5,
+        borderColor: 'green', 
+        borderWidth: 2,
+        borderStyle: 'solid', 
+        fontWeight: 'bold', 
+        marginBottom: '10px',
+    },
 }
+
+
+
+
+

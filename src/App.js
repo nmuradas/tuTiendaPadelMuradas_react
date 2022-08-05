@@ -19,7 +19,7 @@ import './App.css';
 //const App= (props) => {
   //const { name } = props
   // funciona de las dos formas
-const App= ({ value,children ,appVs }) => {
+const App= ({ children }) => {
 
 
   return (  //al no tener lógica podria sacarle el return, pero prefiero adoptar el hábito de tenerlo
@@ -28,14 +28,13 @@ const App= ({ value,children ,appVs }) => {
         <CustomProvider> 
           <Navbar />
           <Routes>
-            <Route path="/" element={<ItemListContainer greeting='Brevemente encontrará todo el listado completo de nuestros productos' />}/> 
+            <Route path="/" element={<ItemListContainer greeting='Brevemente abriremos canchas profesionales de Padel en CABA-ARGENTINA, quedate atento a las novedades' />}/> 
             <Route path="/category/:categoryId" element={<ItemListContainer greeting='Brevemente encontrará todo el listado completo de nuestros productos' />}/> 
             <Route path="/item/:itemId" element={<ItemDetailContainer /> }/> 
             <Route exact path="/cart" element={<Cart />}/> 
           </Routes>
           <Main />  
-          <Title productos='Importados y Nacionales'/>
-          <h1>{value} esta es la {appVs}</h1>       
+          <Title productos='Importados y Nacionales'/>   
           {children}
         </CustomProvider> 
       </BrowserRouter>

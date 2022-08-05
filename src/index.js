@@ -11,7 +11,7 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 
 root.render(
   <React.StrictMode>
-    <App value='Prototipo de Tu Tienda Padel' appVs='Version 0.1'>
+    <App>
       <Message />
     </App>
   </React.StrictMode>

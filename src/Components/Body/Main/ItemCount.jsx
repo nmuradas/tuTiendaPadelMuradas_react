@@ -29,8 +29,8 @@ const ItemCount = ({stock, initial, onAdd})=> {
             <br />
             <button onClick={agregar} ><span role="img" aria-labelledby="plus">➕</span></button>
             <button onClick={quitar} ><span role="img" aria-labelledby="minus">➖</span></button> <br /> <br />
-            <button onClick={()=>{contador>0 ? onAdd(contador) : Swal.fire("No hay productos en el carrito")}}>Agregar al carrito</button>
-            <button onClick={()=>{qtyProducts > 0 ? vaciar() : Swal.fire("No hay productos en el carrito")}}>Vaciar Carrito</button>
+            <button style={styles.btn} onClick={()=>{contador>0 ? onAdd(contador) : Swal.fire("No hay productos en el carrito")}}>Agregar al carrito</button>
+            <button style={styles.btn} onClick={()=>{qtyProducts > 0 ? vaciar() : Swal.fire("No hay productos en el carrito")}}>Vaciar Carrito</button>
         </section>
     )
 
@@ -51,4 +51,17 @@ const styles = {
         borderWidth: 5,
         borderStyle: 'solid', 
         fontWeight: 'bold', 
-    },}
+    },
+    btn: {
+        backgroundColor:"lightGray",
+        borderRadius: 5,
+        borderColor: 'blue', 
+        borderWidth: 2,
+        borderStyle: 'solid', 
+        fontWeight: 'bold', 
+        marginRight: '20px',
+    },
+
+
+
+}
